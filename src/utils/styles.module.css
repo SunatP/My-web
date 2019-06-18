@@ -1,0 +1,34 @@
+@import url('https://fonts.googleapis.com/css?family=Kanit&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Prompt&display=swap');
+
+
+a {
+  font-family: 'Kanit', sans-serif;
+  
+}
+div, h3 ,h2 {
+  font-Family: 'Kanit', sans-serif;
+
+}
+h4 , a {
+    font-family:  'Kanit', sans-serif;
+    
+}
+
+h1 ,h3{
+  font-Family: 'Kanit', bold;
+  color: teal;
+
+}
+a
+{
+  color: green;
+}
+p   {
+  font-Family: 'Kanit', sans-serif;
+  font-size: 15px;
+}
+code {
+  font-Family: 'Kanit', sans-serif;
+  font-size: 15px;
+}

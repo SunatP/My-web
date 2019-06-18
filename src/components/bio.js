@@ -12,6 +12,7 @@ import Image from "gatsby-image"
 import { rhythm } from "../utils/typography"
 
 const Facebook = `sunatpraphanwong`
+const Instagram = 'pok.sunat'
 
 function Bio() {
   return (
@@ -39,13 +40,16 @@ function Bio() {
               }}
             />
             <p>
-              Written by <strong>{author}</strong> The man who lives in Thailand and Study in Mahidol University Salaya Campus.
-              {` `}
+              เริ่มจาก <strong>{author}</strong> มันว่าง🙄🙄.<br></br> ประกอบกับอยากจะทำให้เว็บเก่าเร็วขึ้นด้วยเลยไปหาอ่านแล้วทำเลย <br></br>หน้าตาเว็บก็ออกมางี้แหละ
+              {` `} <br></br>
               <a href={`https://twitter.com/${social.twitter}`}>
-                Follow me on Twitter
-              </a> <br></br>
+                ทวิตเตอร์ผมเอง
+              </a> {' '}
               <a href={`https://www.facebook.com/${Facebook}`}>
-                Follow me on Facebook
+                เฟสบุ๊คผมก็เล่นนะ
+              </a> {' '}
+              <a href={`https://www.instagram.com/${Instagram}`}>
+                นี่ไอจีผมเอง
               </a>
             </p>
           </div>
@@ -59,7 +63,7 @@ const bioQuery = graphql`
   query BioQuery {
     avatar: file(absolutePath: { regex: "/profile.jpg/" }) {
       childImageSharp {
-        fixed(width: 50, height: 50) {
+        fixed(width: 150, height: 150) {
           ...GatsbyImageSharpFixed
         }
       }

@@ -1,19 +1,12 @@
-/**
- * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.org/docs/gatsby-config/
- */
-const path = require(`path`)
-
 module.exports = {
   siteMetadata: {
-    title: `ใช้ฟ้อนต์ไทยได้แล้ววว`,
-    author: `Sunat Praphanwong`,
-    description: `ไม่อธิบายเยอะงง!`,
-    siteUrl: `https://www.facebook.com/sunatpraphanwong`,
+    
+    title: `Sunat X Gatsby`,
+    author: `Sunat P.`,
+    description: `เขียนเยอะทำไมปวดหัวจะตัยห่า.`,
+    siteUrl: `https://github.com/SunatP/`,
     social: {
       twitter: `Sunat_P`,
-      facebook: `sunatpraphanwong`
     },
   },
   plugins: [
@@ -27,8 +20,22 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
+        path:  `${__dirname}/src/pages`,
+        name: 'pages',
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
         path: `${__dirname}/content/assets`,
         name: `assets`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options:{
+        path: `${__dirname}/images`,
+        name: `images`,
       },
     },
     {
@@ -65,13 +72,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Sunat P.`,
+        name: `Gatsby Starter Blog`,
         short_name: `GatsbyJS`,
         start_url: `/`,
-        background_color: `#ffffff`,
+        background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`,
+        icon: `content/assets/firebase-icon.png`,
       },
     },
     `gatsby-plugin-offline`,

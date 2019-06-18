@@ -5,7 +5,10 @@ import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm } from "../utils/typography"
-import "../utils/styles.css";
+
+import Img from "gatsby-image"
+
+import "../utils/card.css"
 
 
 class BlogIndex extends React.Component {
@@ -13,31 +16,39 @@ class BlogIndex extends React.Component {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
     const posts = data.allMarkdownRemark.edges
-
+    
     return (
-      <Layout location={this.props.location} title={siteTitle} >
-        <SEO title="Welcome To Sunat.P" />
-        <Bio />
+      <Layout location={this.props.location} title={siteTitle}>
+        
+        <SEO title="All posts" />
+        {/* <Bio /> */}
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug
           return (
-            <div key={node.fields.slug}>
-              <h3
+            <Link key={node.fields.slug} class="card" to={node.fields.slug}>
+              <h2
                 style={{
-                  marginBottom: rhythm(1 / 4),
+                  marginBottom: rhythm(1 / 2), marginTop: rhythm(-1/2), textAlign: `left`
                 }}
               >
                 <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
                   {title}
                 </Link>
-              </h3>
+              </h2>
+              <Link to={node.fields.slug}>
+              <Img sizes={node.frontmatter.featuredImage.childImageSharp.sizes} style={{maxWidth:`100%`,display:`center`,marginLeft:`auto`,marginRight:`auto`}} />
+
+              </Link>
               <small>{node.frontmatter.date}</small>
+              
               <p
                 dangerouslySetInnerHTML={{
                   __html: node.frontmatter.description || node.excerpt,
                 }}
               />
-            </div>
+              
+            </Link>
+           
           )
         })}
       </Layout>
@@ -65,6 +76,14 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             description
+            featuredImage  {
+              publicURL
+              childImageSharp {
+                sizes(maxWidth: 640) {
+                  ...GatsbyImageSharpSizes_tracedSVG
+                }
+              }
+            }
           }
         }
       }

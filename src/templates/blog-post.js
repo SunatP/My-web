@@ -1,7 +1,7 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-
-import Bio from "../components/bio"
+import Img from "gatsby-image"
+// import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
@@ -11,13 +11,17 @@ class BlogPostTemplate extends React.Component {
     const post = this.props.data.markdownRemark
     const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
-
+    
     return (
+   
       <Layout location={this.props.location} title={siteTitle}>
+
         <SEO
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
         />
+        
+            
         <h1>{post.frontmatter.title}</h1>
         <p
           style={{
@@ -35,7 +39,7 @@ class BlogPostTemplate extends React.Component {
             marginBottom: rhythm(1),
           }}
         />
-        <Bio />
+        {/* <Bio /> */}
 
         <ul
           style={{
@@ -84,6 +88,17 @@ export const pageQuery = graphql`
         title
         date(formatString: "MMMM DD, YYYY")
         description
+        featuredImage  {
+          publicURL
+          childImageSharp {
+            resize(width: 1500 , height:1500){
+              src
+            }
+            sizes(maxWidth: 500) {
+              ...GatsbyImageSharpSizes_tracedSVG
+            }
+          }
+        }
       }
     }
   }
