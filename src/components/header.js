@@ -2,13 +2,16 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 
 import React from "react"
-
+import "../utils/styles.css"
 const Header = ({ siteTitle }) => (
     
   <header
     style={{
       background: `teal`,
       marginBottom: `1.45rem`,
+      animationName: `colorChange`,
+    animationDuration: `15s`,
+    animationIterationCount: `infinite`,
     }}
   >
     <div
@@ -40,5 +43,6 @@ Header.propTypes = {
 Header.defaultProps = {
   siteTitle: ``,
 }
+
 
 export default Header

@@ -10,3 +10,28 @@ div, h3 {
 h1 {
   font-Family: 'Kanit', bold;
 }
+.header {
+    animation-name: colorChange;
+    animation-duration: 15s;
+    animation-iteration-count: infinite;
+}
+@keyframes colorChange {
+  0% {
+      background: teal;    
+  }
+  20% {
+      background: blue;    
+  }
+  40% {
+      background: green;    
+  }
+  60% {
+      background: orange;    
+  }
+  80% {
+      background: purple;    
+  }
+  100% {
+      background: teal;    
+  }
+}

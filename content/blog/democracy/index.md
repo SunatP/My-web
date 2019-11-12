@@ -10,10 +10,16 @@ author: Sunat.P
 
  <h1 style="text-align: center;"> เกิดอะไรขึ้นกับประเทศไทยกันนะ </h1>
 <div>
- <p style="text-align: center;" > ไหนลองทดสอบหน้าหน่อย</p>
+ <h3 style="text-align: center;" > เตือนแล้วนะตะเอง</h3>
 </div>
 
 
 ```java
  System.out.println("Democracy!!");
+
 ```
+
+```python
+print("นายกประหยัด จันทร์อังคาร")
+```
+<br>

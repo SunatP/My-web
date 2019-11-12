@@ -1,13 +1,14 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 
-import Bio from "../components/bio"
+// import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm } from "../utils/typography"
 
 import Img from "gatsby-image"
-
+import TransitionLink from "gatsby-plugin-transition-link"
+import AniLink from "gatsby-plugin-transition-link/AniLink"
 import "../utils/card.css"
 
 
@@ -16,6 +17,7 @@ class BlogIndex extends React.Component {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
     const posts = data.allMarkdownRemark.edges
+    // const author = data.site.siteMetadata.author
     
     return (
       <Layout location={this.props.location} title={siteTitle}>
@@ -34,17 +36,17 @@ class BlogIndex extends React.Component {
                 <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
                   {title}
                 </Link>
+                
               </h2>
               <Link to={node.fields.slug}>
               <Img sizes={node.frontmatter.featuredImage.childImageSharp.sizes} style={{maxWidth:`100%`,display:`center`,marginLeft:`auto`,marginRight:`auto`}} />
 
               </Link>
+
               <small>{node.frontmatter.date}</small>
-              
+              {/* <small>  @:{node.frontmatter.author} </small> */}
               <p
-                dangerouslySetInnerHTML={{
-                  __html: node.frontmatter.description || node.excerpt,
-                }}
+                dangerouslySetInnerHTML={{__html: node.frontmatter.description || node.excerpt,}}
               />
               
             </Link>
@@ -63,6 +65,7 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+        author
       }
     }
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
@@ -75,11 +78,12 @@ export const pageQuery = graphql`
           frontmatter {
             date(formatString: "MMMM DD, YYYY")
             title
+            author
             description
             featuredImage  {
               publicURL
               childImageSharp {
-                sizes(maxWidth: 640) {
+                sizes(maxWidth: 500) {
                   ...GatsbyImageSharpSizes_tracedSVG
                 }
               }

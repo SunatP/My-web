@@ -1,12 +1,13 @@
 import React from "react"
 import { Link } from "gatsby"
-import { rhythm, scale } from "../utils/typography"
+import { rhythm } from "../utils/typography"
 import Header from "./header"
 import Bio from "../components/bio"
 import "../utils/styles.module.css"
+import "../utils/styles.css"
 class Layout extends React.Component {
   render() {
-    const { location, title, children } = this.props
+    const { location, children } = this.props
     const rootPath = `${__PATH_PREFIX__}/`
     let header
     let footer
@@ -45,26 +46,36 @@ class Layout extends React.Component {
               
           </Link>
         
+          <Link  style={{
+              boxShadow: `none`,
+              textDecoration: `none`,
+              color: `inherit`,
+              fontSize: `24px`
+            }}
+            to={`aboutme`}
+            > {`หน้าเปล่า?`}
+              
+          </Link>
           </ul>
       
         </h4>
          </>
       )
-      footer = (
-        <footer>
-        เริ่มทำในปี {new Date().getFullYear()}, ทำด้วย <b style={{color:`Red`}}>❤</b> ใช้
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-          {` `}& <a href="https://reactjs.org/">React</a>
-        </footer>
-      )
+      // footer = (
+      //   // <footer>
+      //   // เริ่มทำในปี {new Date().getFullYear()}, ทำด้วย <b style={{color:`Red`}}>❤</b> ใช้
+      //   //   {` `}
+      //   //   <a href="https://www.gatsbyjs.org">Gatsby</a>
+      //   //   {` `}& <a href="https://reactjs.org/">React</a>
+      //   // </footer>
+      // )
     } else {
       header = (
         <h4
           style={{
             fontFamily: `Montserrat, sans-serif`,
-            marginTop: 0, textAlign: "left",
-            marginTop: 20,
+            marginTop: 20, textAlign: "left",
+            
           }}
         >
           <Link
@@ -77,6 +88,27 @@ class Layout extends React.Component {
             to={`/`}
           >
             {`หน้าหลัก 🏠`}
+          </Link>
+          <Link  style={{
+              boxShadow: `none`,
+              textDecoration: `none`,
+              color: `inherit`,
+              fontSize: `24px`
+            }}
+            to={`about`}
+            > {`แนะนำตัวเอง`}
+              
+          </Link>
+        
+          <Link  style={{
+              boxShadow: `none`,
+              textDecoration: `none`,
+              color: `inherit`,
+              fontSize: `24px`
+            }}
+            to={`aboutme`}
+            > {`หน้าเปล่า?`}
+              
           </Link>
         </h4>
         
@@ -91,13 +123,19 @@ class Layout extends React.Component {
         style={{
           marginLeft: `auto`,
           marginRight: `auto`,
-          maxWidth: rhythm(30),
+          maxWidth: rhythm(30), // Card size
           padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
         }}
       > 
         <main>{children}</main>
        
        <Bio/>
+       <footer>
+        เริ่มทำในปี {new Date().getFullYear()}, ทำด้วย <b style={{color:`Red`}}>❤</b> ใช้
+          {` `}
+          <a href="https://www.gatsbyjs.org">Gatsby</a>
+          {` `}& <a href="https://reactjs.org/">React</a>
+        </footer>
        <footer>{footer}</footer>
       </div>
       </>

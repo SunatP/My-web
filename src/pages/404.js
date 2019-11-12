@@ -16,7 +16,7 @@ class NotFoundPage extends React.Component {
         {/* <h1 style={{textAlign:"center", fontSize:"75px", color:"black"}}> 404 </h1>
         
         <h2 style={{textAlign:"center", fontSize:"50px"}}> Page Not Found  </h2> */}
-        <img src={image}></img>
+        <img src={image} alt=""></img>
         <h3 style={{textAlign:"center"}}>ดูเหมือนหน้านี้จะหายไปนะ หรือบางทีเอเลี่ยนเอาหน้านี้ไปกันนะ</h3>
        
         <p style={{textAlign:"center"}}>ลองกด F5 ใหม่อีกครั้งบางทีอาจจะกลับมาก็ได้นะ</p>
@@ -26,6 +26,8 @@ class NotFoundPage extends React.Component {
 }
 
 export default NotFoundPage
+
+
 
 export const pageQuery = graphql`
   query {

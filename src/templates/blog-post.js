@@ -1,6 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-import Img from "gatsby-image"
+// import Img from "gatsby-image"
 // import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -31,7 +31,8 @@ class BlogPostTemplate extends React.Component {
             marginTop: rhythm(-1),
           }}
         >
-          {post.frontmatter.date}
+          {post.frontmatter.date} <div>เขียนโดย: {post.frontmatter.author}</div>
+          
         </p>
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
         <hr
@@ -65,7 +66,9 @@ class BlogPostTemplate extends React.Component {
             )}
           </li>
         </ul>
+     
       </Layout>
+      
     )
   }
 }
@@ -86,15 +89,16 @@ export const pageQuery = graphql`
       html
       frontmatter {
         title
+        author
         date(formatString: "MMMM DD, YYYY")
         description
         featuredImage  {
           publicURL
           childImageSharp {
-            resize(width: 1500 , height:1500){
+            resize(width: 500 , height:500){
               src
             }
-            sizes(maxWidth: 500) {
+            sizes(maxWidth: 250) {
               ...GatsbyImageSharpSizes_tracedSVG
             }
           }
